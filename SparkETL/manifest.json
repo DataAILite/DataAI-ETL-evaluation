@@ -1,0 +1,32 @@
+{
+  "name": "DataAI ETL Spark Libraries",
+  "provider": "Yanbor LLC",
+  "providerDescription": "provider of the DataAI product",
+  "packageVersion": "0.1.0-SNAPSHOT",
+  "packageStatus": "evaluation-development",
+  "runtime": {
+    "java": "17",
+    "spark": "3.5.0",
+    "scalaBinary": "2.12"
+  },
+  "coordinates": [
+    "com.dataai:dataai-spark-api:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-quality:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-core:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-functions:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-cli:0.1.0-SNAPSHOT"
+  ],
+  "dataHandling": {
+    "hostedService": false,
+    "requiredDataAiNetworkCalls": false,
+    "telemetry": false,
+    "automaticWrites": false,
+    "bundledSpark": false,
+    "bundledHadoop": false
+  },
+  "distribution": {
+    "primaryCommercialChannel": "authenticated private Maven repository",
+    "publicArtifactCandidate": "Maven Central after release gates",
+    "cloudMarketplaceStatus": "partner review required; raw JAR delivery not assumed"
+  }
+}

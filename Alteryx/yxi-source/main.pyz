@@ -1,0 +1,19 @@
+"""Bootstrap the AYX Python SDK service from the packaged tool environment."""
+
+import os
+import pathlib
+import site
+import sys
+
+
+tool_directory = pathlib.Path(__file__).resolve().parent
+site.addsitedir(str(tool_directory / "site-packages"))
+os.environ["PYTHONUNBUFFERED"] = "1"
+
+if __name__ == "__main__":
+    from ayx_python_sdk.providers.amp_provider.__main__ import start_sdk_tool_service
+
+    tool_package = sys.argv[2]
+    tool_name = sys.argv[3]
+    print(f"ListenPort: {os.getenv('TOOL_SERVICE_ADDRESS')}")
+    start_sdk_tool_service(tool_package, tool_name, os.getenv("TOOL_SERVICE_ADDRESS"))

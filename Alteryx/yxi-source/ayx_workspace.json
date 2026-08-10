@@ -1,0 +1,44 @@
+{
+  "name": "DataAI_ETL_Alteryx_2026_1_Evaluation",
+  "tool_category": "DataAI ETL",
+  "package_icon_path": "configuration/dataai-alteryx-icon.png",
+  "author": "Yanbor LLC",
+  "company": "Yanbor LLC",
+  "copyright": "Copyright 2026 Yanbor LLC. All rights reserved.",
+  "description": "Run DataAI Spark ETL quality processing from an Alteryx workflow without a Yanbor-hosted service.",
+  "ayx_cli_version": "1.3.2",
+  "backend_language": "python",
+  "backend_language_settings": {
+    "python_version": "3.13",
+    "requirements_local_path": "backends/requirements-local.txt",
+    "requirements_thirdparty_path": "backends/requirements-thirdparty.txt"
+  },
+  "tools": {
+    "DataAiEtlQuality": {
+      "backend": {
+        "tool_module": "ayx_plugins",
+        "tool_class_name": "DataAiEtlQuality"
+      },
+      "ui": {},
+      "configuration": {
+        "long_name": "DataAI ETL Quality",
+        "description": "Run governed DataAI normalization, profiling, validation, and quality scoring in customer-controlled Spark.",
+        "version": "1.0",
+        "search_tags": ["DataAI", "ETL", "Spark", "quality", "validation", "profiling"],
+        "help_url": "https://www.yanbor.com/dataai",
+        "icon_path": "configuration/dataai-alteryx-icon.png",
+        "input_anchors": {},
+        "output_anchors": {
+          "Status": {
+            "label": "Status",
+            "allow_multiple": false,
+            "optional": true
+          }
+        },
+        "dcm_namespace": "",
+        "writes_output_data": true
+      }
+    }
+  },
+  "tool_version": "1.0"
+}

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="70" fill="#071426"/>
+  <rect x="46" y="46" width="420" height="420" rx="70" fill="#102a43" stroke="#35c5f0" stroke-width="7"/>
+  <text x="256" y="105" text-anchor="middle" fill="#ffffff" font-family="Segoe UI,Arial" font-size="52" font-weight="700">DataAI</text>
+  <path d="M116 150 L256 108 L396 150 L256 192 Z" fill="none" stroke="#35c5f0" stroke-width="10"/>
+  <path d="M116 214 L256 172 L396 214 L256 256 Z" fill="none" stroke="#52e0a7" stroke-width="10"/>
+  <path d="M116 278 L256 236 L396 278 L256 320 Z" fill="none" stroke="#ffcc66" stroke-width="10"/>
+  <text x="256" y="435" text-anchor="middle" fill="#ffffff" font-family="Segoe UI,Arial" font-size="64" font-weight="700">ETL</text>
+  <text x="256" y="475" text-anchor="middle" fill="#b9d7ef" font-family="Segoe UI,Arial" font-size="21" font-weight="700">DATABRICKS</text>
+</svg>

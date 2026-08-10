@@ -1,0 +1,51 @@
+{
+  "name": "DataAI ETL for Alteryx",
+  "provider": "Yanbor LLC",
+  "providerDescription": "provider of the DataAI product",
+  "packageVersion": "0.1.0-SNAPSHOT",
+  "packageStatus": "evaluation-development",
+  "submissionReady": false,
+  "listing": {
+    "type": "Alteryx Marketplace Add-On",
+    "addOnTypes": ["custom tool", "workflow example"],
+    "listingName": "DataAI ETL Quality for Spark",
+    "marketplacePrice": "free evaluation download",
+    "productionRights": "separate Yanbor LLC commercial agreement"
+  },
+  "alteryx": {
+    "designerTarget": "2026.1",
+    "engine": "AMP required",
+    "embeddedPython": "3.13.11",
+    "ayxPluginCli": "1.3.2",
+    "ayxPythonSdk": "2.5.3",
+    "externalDesignerValidation": false,
+    "externalServerValidation": false,
+    "yxi": "build/DataAI_ETL_Alteryx_2026_1_Evaluation.yxi"
+  },
+  "dataAiRuntime": {
+    "java": "17",
+    "sparkBuild": "3.5.0",
+    "scalaBinary": "2.12",
+    "cliMainClass": "com.dataai.etl.spark.cli.DataAiJob",
+    "packageVersion": "0.1.0-SNAPSHOT"
+  },
+  "coordinates": [
+    "com.dataai:dataai-spark-api:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-quality:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-core:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-functions:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-cli:0.1.0-SNAPSHOT"
+  ],
+  "dataHandling": {
+    "hostedService": false,
+    "requiredDataAiNetworkCalls": false,
+    "telemetry": false,
+    "remoteLicenseCheck": false,
+    "customerSelectedSparkRuntime": true,
+    "transientLocalConfigFile": true,
+    "configuredOutputTablesUseOverwrite": true,
+    "bundledSpark": false,
+    "bundledHadoop": false
+  },
+  "releaseGate": "Complete PROVIDER_CHECKLIST.md, replace design previews with actual Designer screenshots, use an immutable non-SNAPSHOT DataAI version, and set submissionReady only after external validation."
+}

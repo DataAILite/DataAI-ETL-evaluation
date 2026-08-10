@@ -1,0 +1,26 @@
+{
+  "sourceTable": "dataai_eval.customer_orders",
+  "cleanTable": "dataai_eval.customer_orders_clean",
+  "rejectedTable": "dataai_eval.customer_orders_rejected",
+  "profileTable": "dataai_eval.customer_orders_profile",
+  "findingsTable": "dataai_eval.customer_orders_findings",
+  "normalize": true,
+  "recordKeyColumns": ["order_id"],
+  "rules": [
+    {
+      "id": "order-id-required",
+      "type": "REQUIRED",
+      "field": "order_id",
+      "parameter": null,
+      "severity": "ERROR"
+    },
+    {
+      "id": "amount-positive",
+      "type": "MINIMUM",
+      "field": "amount",
+      "parameter": "0",
+      "severity": "ERROR"
+    }
+  ],
+  "minimumQualityScore": 80.0
+}

@@ -1,0 +1,29 @@
+{
+  "name": "DataAI ETL for Tableau",
+  "provider": "Yanbor LLC",
+  "providerDescription": "provider of the DataAI product",
+  "packageVersion": "0.1.0-SNAPSHOT",
+  "packageStatus": "evaluation-development",
+  "adapterCoordinate": "com.dataai:dataai-spark-tableau:0.1.0-SNAPSHOT",
+  "runtime": {
+    "java": "17",
+    "spark": "3.5.0",
+    "scalaBinary": "2.12"
+  },
+  "tableauDelivery": "Accelerator packaged workbook plus native connector instructions",
+  "dataHandling": {
+    "hostedService": false,
+    "requiredNetworkCalls": false,
+    "telemetry": false,
+    "automaticWrites": false
+  },
+  "artifacts": [
+    "LICENSE.md",
+    "COMMERCIAL_LICENSE_TEMPLATE.md",
+    "accelerator/DataAI_ETL_Accelerator.twbx",
+    "sample-data/dataai_tableau_sample.hyper",
+    "mapping/TABLEAU_OUTPUT_SCHEMA.md",
+    "mapping/FUNCTION_OUTPUTS_FOR_TABLEAU.md",
+    "listing/TABLEAU_EXCHANGE_LISTING.md"
+  ]
+}

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Yanbor.DataAI.Etl.Spark</PackageId>
+    <Version>0.1.0-evaluation.1</Version>
+    <Authors>Yanbor LLC</Authors>
+    <Company>Yanbor LLC</Company>
+    <Description>.NET integration helpers for embedding DataAI ETL in customer-controlled Apache Spark pipelines.</Description>
+    <PackageTags>DataAI;ETL;Spark;.NET;data-quality;analytics;matrix-balancing</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>dataai-spark-icon.png</PackageIcon>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Evaluation prerelease with runtime discovery, quality-job configuration, function catalog, and spark-submit command construction.</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Yanbor.DataAI.Etl.Spark.Runtime\Yanbor.DataAI.Etl.Spark.Runtime.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\LICENSE.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\SparkETL\THIRD_PARTY_NOTICES.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\SparkETL\assets\dataai-spark-icon.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,28 @@
+{
+  "name": "DataAI ETL Spark Libraries for Oracle Cloud Marketplace",
+  "provider": "Yanbor LLC",
+  "providerDescription": "provider of the DataAI product",
+  "packageVersion": "0.1.0-SNAPSHOT",
+  "packageStatus": "evaluation-development",
+  "submissionReady": false,
+  "channel": "Oracle",
+  "offerType": "OCI application container image or lead-generation listing",
+  "runtime": {
+    "java": "17",
+    "spark": "3.5.0",
+    "scalaBinary": "2.12"
+  },
+  "dataHandling": {
+    "hostedService": false,
+    "telemetry": false,
+    "remoteLicenseCheck": false,
+    "automaticWrites": false
+  },
+  "releaseGates": [
+    "Complete OCI partner and Marketplace Publisher onboarding.",
+    "Choose lead generation or a supported OCI application package type.",
+    "Replace SNAPSHOT artifacts and validate OCI Data Flow compatibility.",
+    "Build, scan, and upload the container artifact to OCI Publisher when using a container listing.",
+    "Complete paid-listing eligibility, terms, support, and regional availability review."
+  ]
+}

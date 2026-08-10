@@ -1,0 +1,1 @@
+The container stores DataAI JARs in `/opt/dataai/lib`. Customers copy licensed artifacts into a governed Cloud Storage bucket and reference them with Dataproc `--jars` or cluster initialization. The image has no DataAI service, telemetry, or customer-data callback.

@@ -1,0 +1,10 @@
+MAVEN CENTRAL UPLOAD IS BLOCKED
+
+Current version: 0.1.0-SNAPSHOT
+
+Reasons:
+- Maven Central release versions cannot end in SNAPSHOT.
+- The com.dataai namespace has not been verified in this package.
+- POM publication metadata requires final legal and engineering review.
+- Deployable POMs and JARs do not have Yanbor LLC PGP signatures.
+- Public, permanent distribution has not been authorized.

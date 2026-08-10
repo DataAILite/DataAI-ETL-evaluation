@@ -1,0 +1,1 @@
+The container stores DataAI JARs in `/opt/dataai/lib`. For OCI Data Flow, the customer copies licensed artifacts to customer-controlled Object Storage and supplies their URIs as Spark job dependencies. No Yanbor-hosted runtime or customer-data transfer is required.

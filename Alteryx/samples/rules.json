@@ -1,0 +1,23 @@
+[
+  {
+    "id": "order-id-required",
+    "type": "REQUIRED",
+    "field": "order_id",
+    "parameter": null,
+    "severity": "ERROR"
+  },
+  {
+    "id": "amount-positive",
+    "type": "MINIMUM",
+    "field": "amount",
+    "parameter": "0",
+    "severity": "ERROR"
+  },
+  {
+    "id": "country-known",
+    "type": "IN_SET",
+    "field": "country",
+    "parameter": "US\u001fCA\u001fGB",
+    "severity": "WARNING"
+  }
+]

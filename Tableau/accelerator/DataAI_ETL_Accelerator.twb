@@ -1,0 +1,235 @@
+<?xml version='1.0' encoding='utf-8' ?>
+    <workbook original-version='18.1' source-build='2024.2.0 (20242.24.0715.1602)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+      <document-format-change-manifest>
+        <AccessibleZoneTabOrder />
+        <SheetIdentifierTracking />
+      </document-format-change-manifest>
+      <preferences>
+        <preference name='ui.encoding.shelf.height' value='24' />
+      </preferences>
+      <datasources>
+        <datasource caption='DataAI Dashboard Metrics' inline='true' name='dataai_dashboard_metrics' version='18.1'>
+          <aliases enabled='yes' />
+          <connection access_mode='readonly' authentication='auth-none' class='textscan' directory='Data' filename='dataai_dashboard_metrics.csv' password='' server=''>
+            <relation name='dataai_dashboard_metrics.csv' table='[dataai_dashboard_metrics#csv]' type='table' />
+          </connection>
+          <column datatype='string' name='[run_id]' role='dimension' type='nominal' />
+          <column datatype='datetime' date-parse-format='yyyy-MM-ddTHH:mm:ss' name='[completed_at]' role='dimension' type='ordinal' />
+          <column datatype='string' name='[status]' role='dimension' type='nominal' />
+          <column datatype='integer' name='[rows_read]' role='measure' type='quantitative' />
+          <column datatype='integer' name='[rows_accepted]' role='measure' type='quantitative' />
+          <column datatype='integer' name='[rows_rejected]' role='measure' type='quantitative' />
+          <column datatype='real' default-format='f2' name='[quality_score]' role='measure' type='quantitative' />
+          <column datatype='integer' name='[critical_findings]' role='measure' type='quantitative' />
+          <column datatype='integer' name='[error_findings]' role='measure' type='quantitative' />
+          <column datatype='integer' name='[warning_findings]' role='measure' type='quantitative' />
+          <column datatype='integer' name='[info_findings]' role='measure' type='quantitative' />
+          <column datatype='integer' name='[fields_profiled]' role='measure' type='quantitative' />
+          <column datatype='integer' name='[total_null_values]' role='measure' type='quantitative' />
+        </datasource>
+      </datasources>
+      <worksheets>
+<worksheet name='Quality Score Trend'>
+  <table>
+    <view>
+      <datasources><datasource caption='DataAI Dashboard Metrics' name='dataai_dashboard_metrics' /></datasources>
+      <datasource-dependencies datasource='dataai_dashboard_metrics'>
+      <column datatype='string' name='[run_id]' role='dimension' type='nominal' />
+      <column datatype='datetime' name='[completed_at]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[status]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[rows_read]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_accepted]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_rejected]' role='measure' type='quantitative' />
+      <column datatype='real' name='[quality_score]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[critical_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[error_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[warning_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[info_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[fields_profiled]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[total_null_values]' role='measure' type='quantitative' />
+        <column-instance column='[completed_at]' derivation='Exact' name='[attr:completed_at:qk]' pivot='key' type='ordinal' />
+        <column-instance column='[quality_score]' derivation='Avg' name='[avg:quality_score:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <aggregation value='true' />
+    </view>
+    <style><style-rule element='worksheet'><format attr='display-field-labels' value='false' /></style-rule></style>
+    <panes><pane><view><breakdown value='auto' /></view><mark class='Line' /></pane></panes>
+    <rows>dataai_dashboard_metrics.[avg:quality_score:qk]</rows>
+    <cols>dataai_dashboard_metrics.[attr:completed_at:qk]</cols>
+  </table>
+</worksheet>
+<worksheet name='Rows Accepted'>
+  <table>
+    <view>
+      <datasources><datasource caption='DataAI Dashboard Metrics' name='dataai_dashboard_metrics' /></datasources>
+      <datasource-dependencies datasource='dataai_dashboard_metrics'>
+      <column datatype='string' name='[run_id]' role='dimension' type='nominal' />
+      <column datatype='datetime' name='[completed_at]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[status]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[rows_read]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_accepted]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_rejected]' role='measure' type='quantitative' />
+      <column datatype='real' name='[quality_score]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[critical_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[error_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[warning_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[info_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[fields_profiled]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[total_null_values]' role='measure' type='quantitative' />
+        <column-instance column='[completed_at]' derivation='Exact' name='[attr:completed_at:qk]' pivot='key' type='ordinal' />
+        <column-instance column='[rows_accepted]' derivation='Sum' name='[sum:rows_accepted:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <aggregation value='true' />
+    </view>
+    <style><style-rule element='worksheet'><format attr='display-field-labels' value='false' /></style-rule></style>
+    <panes><pane><view><breakdown value='auto' /></view><mark class='Bar' /></pane></panes>
+    <rows>dataai_dashboard_metrics.[sum:rows_accepted:qk]</rows>
+    <cols>dataai_dashboard_metrics.[attr:completed_at:qk]</cols>
+  </table>
+</worksheet>
+<worksheet name='Rows Rejected'>
+  <table>
+    <view>
+      <datasources><datasource caption='DataAI Dashboard Metrics' name='dataai_dashboard_metrics' /></datasources>
+      <datasource-dependencies datasource='dataai_dashboard_metrics'>
+      <column datatype='string' name='[run_id]' role='dimension' type='nominal' />
+      <column datatype='datetime' name='[completed_at]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[status]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[rows_read]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_accepted]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_rejected]' role='measure' type='quantitative' />
+      <column datatype='real' name='[quality_score]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[critical_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[error_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[warning_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[info_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[fields_profiled]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[total_null_values]' role='measure' type='quantitative' />
+        <column-instance column='[completed_at]' derivation='Exact' name='[attr:completed_at:qk]' pivot='key' type='ordinal' />
+        <column-instance column='[rows_rejected]' derivation='Sum' name='[sum:rows_rejected:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <aggregation value='true' />
+    </view>
+    <style><style-rule element='worksheet'><format attr='display-field-labels' value='false' /></style-rule></style>
+    <panes><pane><view><breakdown value='auto' /></view><mark class='Bar' /></pane></panes>
+    <rows>dataai_dashboard_metrics.[sum:rows_rejected:qk]</rows>
+    <cols>dataai_dashboard_metrics.[attr:completed_at:qk]</cols>
+  </table>
+</worksheet>
+<worksheet name='Critical Findings'>
+  <table>
+    <view>
+      <datasources><datasource caption='DataAI Dashboard Metrics' name='dataai_dashboard_metrics' /></datasources>
+      <datasource-dependencies datasource='dataai_dashboard_metrics'>
+      <column datatype='string' name='[run_id]' role='dimension' type='nominal' />
+      <column datatype='datetime' name='[completed_at]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[status]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[rows_read]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_accepted]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_rejected]' role='measure' type='quantitative' />
+      <column datatype='real' name='[quality_score]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[critical_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[error_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[warning_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[info_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[fields_profiled]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[total_null_values]' role='measure' type='quantitative' />
+        <column-instance column='[completed_at]' derivation='Exact' name='[attr:completed_at:qk]' pivot='key' type='ordinal' />
+        <column-instance column='[critical_findings]' derivation='Sum' name='[sum:critical_findings:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <aggregation value='true' />
+    </view>
+    <style><style-rule element='worksheet'><format attr='display-field-labels' value='false' /></style-rule></style>
+    <panes><pane><view><breakdown value='auto' /></view><mark class='Bar' /></pane></panes>
+    <rows>dataai_dashboard_metrics.[sum:critical_findings:qk]</rows>
+    <cols>dataai_dashboard_metrics.[attr:completed_at:qk]</cols>
+  </table>
+</worksheet>
+<worksheet name='Error Findings'>
+  <table>
+    <view>
+      <datasources><datasource caption='DataAI Dashboard Metrics' name='dataai_dashboard_metrics' /></datasources>
+      <datasource-dependencies datasource='dataai_dashboard_metrics'>
+      <column datatype='string' name='[run_id]' role='dimension' type='nominal' />
+      <column datatype='datetime' name='[completed_at]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[status]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[rows_read]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_accepted]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_rejected]' role='measure' type='quantitative' />
+      <column datatype='real' name='[quality_score]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[critical_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[error_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[warning_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[info_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[fields_profiled]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[total_null_values]' role='measure' type='quantitative' />
+        <column-instance column='[completed_at]' derivation='Exact' name='[attr:completed_at:qk]' pivot='key' type='ordinal' />
+        <column-instance column='[error_findings]' derivation='Sum' name='[sum:error_findings:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <aggregation value='true' />
+    </view>
+    <style><style-rule element='worksheet'><format attr='display-field-labels' value='false' /></style-rule></style>
+    <panes><pane><view><breakdown value='auto' /></view><mark class='Bar' /></pane></panes>
+    <rows>dataai_dashboard_metrics.[sum:error_findings:qk]</rows>
+    <cols>dataai_dashboard_metrics.[attr:completed_at:qk]</cols>
+  </table>
+</worksheet>
+<worksheet name='Null Values'>
+  <table>
+    <view>
+      <datasources><datasource caption='DataAI Dashboard Metrics' name='dataai_dashboard_metrics' /></datasources>
+      <datasource-dependencies datasource='dataai_dashboard_metrics'>
+      <column datatype='string' name='[run_id]' role='dimension' type='nominal' />
+      <column datatype='datetime' name='[completed_at]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[status]' role='dimension' type='nominal' />
+      <column datatype='integer' name='[rows_read]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_accepted]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[rows_rejected]' role='measure' type='quantitative' />
+      <column datatype='real' name='[quality_score]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[critical_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[error_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[warning_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[info_findings]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[fields_profiled]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[total_null_values]' role='measure' type='quantitative' />
+        <column-instance column='[completed_at]' derivation='Exact' name='[attr:completed_at:qk]' pivot='key' type='ordinal' />
+        <column-instance column='[total_null_values]' derivation='Sum' name='[sum:total_null_values:qk]' pivot='key' type='quantitative' />
+      </datasource-dependencies>
+      <aggregation value='true' />
+    </view>
+    <style><style-rule element='worksheet'><format attr='display-field-labels' value='false' /></style-rule></style>
+    <panes><pane><view><breakdown value='auto' /></view><mark class='Line' /></pane></panes>
+    <rows>dataai_dashboard_metrics.[sum:total_null_values:qk]</rows>
+    <cols>dataai_dashboard_metrics.[attr:completed_at:qk]</cols>
+  </table>
+</worksheet>
+      </worksheets>
+      <dashboards>
+        <dashboard enable-sort-zone-taborder='true' name='DataAI Executive Summary'>
+          <style><style-rule element='dashboard'><format attr='background-color' value='#F4F7FB' /></style-rule></style>
+          <size sizing-mode='automatic' />
+          <zones>
+            <zone h='100000' id='1' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='50000' id='2' name='Quality Score Trend' w='66000' x='1000' y='2000' />
+              <zone h='24000' id='3' name='Rows Accepted' w='31000' x='68000' y='2000' />
+              <zone h='24000' id='4' name='Rows Rejected' w='31000' x='68000' y='27000' />
+              <zone h='45000' id='5' name='Critical Findings' w='32000' x='1000' y='53000' />
+              <zone h='45000' id='6' name='Error Findings' w='32000' x='34000' y='53000' />
+              <zone h='45000' id='7' name='Null Values' w='32000' x='67000' y='53000' />
+            </zone>
+          </zones>
+        </dashboard>
+      </dashboards>
+      <windows>
+        <window class='dashboard' name='DataAI Executive Summary'>
+          <viewpoints>
+            <viewpoint name='Quality Score Trend' />
+            <viewpoint name='Rows Accepted' />
+            <viewpoint name='Rows Rejected' />
+            <viewpoint name='Critical Findings' />
+            <viewpoint name='Error Findings' />
+            <viewpoint name='Null Values' />
+          </viewpoints>
+        </window>
+      </windows>
+    </workbook>

@@ -1,0 +1,1 @@
+The included Dockerfile is a component-image candidate, not a finished CNAB. It stores DataAI JARs under `/opt/dataai/lib` and performs no hosted processing. A marketplace submission needs an approved Kubernetes application design or a different offer type selected with Microsoft.

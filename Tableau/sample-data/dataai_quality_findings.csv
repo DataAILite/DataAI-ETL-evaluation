@@ -1,0 +1,13 @@
+run_id,record_key,rule_id,field_name,severity,finding_code,message,original_value,normalized_value
+RUN-2026-08-06,REC-0007,customer-required,customer_id,ERROR,REQUIRED_VALUE_MISSING,Customer identifier is required,,
+RUN-2026-08-06,REC-0118,amount-nonnegative,amount,ERROR,VALUE_BELOW_MINIMUM,Amount is below the allowed minimum,-12.50,-12.50
+RUN-2026-08-06,REC-0421,email-format,email,WARNING,REGEX_MISMATCH,Email does not match the configured format,example at invalid,example at invalid
+RUN-2026-08-06,REC-0820,order-unique,order_id,CRITICAL,DUPLICATE_VALUE,Order identifier is duplicated,ORD-820,ORD-820
+RUN-2026-08-06,REC-1082,status-values,status,WARNING,VALUE_NOT_IN_SET,Status is outside the accepted set,pending review,pending review
+RUN-2026-08-06,REC-1440,order-date,order_date,ERROR,DATE_FORMAT_MISMATCH,Order date is not in yyyy-MM-dd format,08/06/26,08/06/26
+RUN-2026-08-06,REC-1922,customer-required,customer_id,ERROR,REQUIRED_VALUE_MISSING,Customer identifier is required, ,
+RUN-2026-07-30,REC-2401,amount-nonnegative,amount,ERROR,VALUE_BELOW_MINIMUM,Amount is below the allowed minimum,-4.00,-4.00
+RUN-2026-07-30,REC-2488,email-format,email,WARNING,REGEX_MISMATCH,Email does not match the configured format,invalid.example,invalid.example
+RUN-2026-07-30,REC-2602,order-unique,order_id,CRITICAL,DUPLICATE_VALUE,Order identifier is duplicated,ORD-2602,ORD-2602
+RUN-2026-07-23,REC-3015,status-values,status,WARNING,VALUE_NOT_IN_SET,Status is outside the accepted set,unknown,unknown
+RUN-2026-07-23,REC-3390,order-date,order_date,ERROR,DATE_FORMAT_MISMATCH,Order date is not in yyyy-MM-dd format,July 23,July 23

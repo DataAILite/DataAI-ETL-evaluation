@@ -1,0 +1,9 @@
+run_id,metric_name,metric_value,target_value,status
+RUN-2026-08-06,Quality Score,97.53,95.00,ON_TARGET
+RUN-2026-08-06,Acceptance Rate,97.53,95.00,ON_TARGET
+RUN-2026-08-06,Critical Findings,1.00,0.00,ATTENTION
+RUN-2026-08-06,Null Values,642.00,700.00,ON_TARGET
+RUN-2026-07-30,Quality Score,97.26,95.00,ON_TARGET
+RUN-2026-07-30,Acceptance Rate,97.26,95.00,ON_TARGET
+RUN-2026-07-30,Critical Findings,1.00,0.00,ATTENTION
+RUN-2026-07-30,Null Values,689.00,700.00,ON_TARGET

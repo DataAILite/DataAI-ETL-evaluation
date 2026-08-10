@@ -1,0 +1,8 @@
+{
+  "libraries": [
+    {"jar": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl/lib/dataai-spark-api-0.1.0-SNAPSHOT.jar"},
+    {"jar": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl/lib/dataai-spark-quality-0.1.0-SNAPSHOT.jar"},
+    {"jar": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl/lib/dataai-spark-core-0.1.0-SNAPSHOT.jar"},
+    {"jar": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl/lib/dataai-spark-functions-0.1.0-SNAPSHOT.jar"}
+  ]
+}

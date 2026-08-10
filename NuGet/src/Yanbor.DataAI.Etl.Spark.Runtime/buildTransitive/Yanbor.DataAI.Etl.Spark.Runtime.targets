@@ -1,0 +1,26 @@
+<Project>
+  <ItemGroup>
+    <DataAiSparkLibraryJar Include="$(DataAiSparkPackageJarsDirectory)\*.jar" />
+    <DataAiSparkCliJar Include="$(DataAiSparkPackageCliDirectory)\*.jar" />
+  </ItemGroup>
+
+  <Target Name="CopyDataAiSparkRuntimeForBuild" AfterTargets="Build">
+    <MakeDir Directories="$(TargetDir)dataai\jars;$(TargetDir)dataai\cli" />
+    <Copy SourceFiles="@(DataAiSparkLibraryJar)"
+          DestinationFolder="$(TargetDir)dataai\jars"
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(DataAiSparkCliJar)"
+          DestinationFolder="$(TargetDir)dataai\cli"
+          SkipUnchangedFiles="true" />
+  </Target>
+
+  <Target Name="CopyDataAiSparkRuntimeForPublish" AfterTargets="Publish">
+    <MakeDir Directories="$(PublishDir)dataai\jars;$(PublishDir)dataai\cli" />
+    <Copy SourceFiles="@(DataAiSparkLibraryJar)"
+          DestinationFolder="$(PublishDir)dataai\jars"
+          SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(DataAiSparkCliJar)"
+          DestinationFolder="$(PublishDir)dataai\cli"
+          SkipUnchangedFiles="true" />
+  </Target>
+</Project>

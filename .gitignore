@@ -1,0 +1,13 @@
+**/target/
+**/bin/
+**/obj/
+.m2/
+.tools/
+NuGet/.packages/
+**/.idea/
+**/.vscode/
+*.iml
+*.log
+.DS_Store
+*.zip
+node_modules/

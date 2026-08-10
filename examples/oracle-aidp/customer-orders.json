@@ -1,0 +1,39 @@
+{
+  "sourceTable": "bronze.customer_orders",
+  "cleanTable": "silver.customer_orders",
+  "rejectedTable": "quarantine.customer_orders",
+  "profileTable": "dataai.customer_orders_field_profile",
+  "findingsTable": "dataai.customer_orders_quality_finding",
+  "normalize": true,
+  "recordKeyColumns": ["order_id"],
+  "minimumQualityScore": 90.0,
+  "rules": [
+    {
+      "id": "customer-required",
+      "type": "REQUIRED",
+      "field": "customer_id",
+      "severity": "ERROR"
+    },
+    {
+      "id": "order-unique",
+      "type": "UNIQUE",
+      "field": "order_id",
+      "severity": "CRITICAL"
+    },
+    {
+      "id": "amount-nonnegative",
+      "type": "MINIMUM",
+      "field": "amount",
+      "parameter": "0",
+      "severity": "ERROR"
+    },
+    {
+      "id": "email-format",
+      "type": "REGEX",
+      "field": "email",
+      "parameter": "^[^@]+@[^@]+\\.[^@]+$",
+      "severity": "WARNING"
+    }
+  ]
+}
+

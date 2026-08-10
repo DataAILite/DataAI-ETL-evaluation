@@ -1,0 +1,28 @@
+{
+  "name": "DataAI ETL Spark Libraries for AWS Marketplace",
+  "provider": "Yanbor LLC",
+  "providerDescription": "provider of the DataAI product",
+  "packageVersion": "0.1.0-SNAPSHOT",
+  "packageStatus": "evaluation-development",
+  "submissionReady": false,
+  "channel": "AWS",
+  "offerType": "Linux container product for Amazon EMR Serverless",
+  "runtime": {
+    "java": "17",
+    "spark": "3.5.0",
+    "scalaBinary": "2.12"
+  },
+  "dataHandling": {
+    "hostedService": false,
+    "telemetry": false,
+    "remoteLicenseCheck": false,
+    "automaticWrites": false
+  },
+  "releaseGates": [
+    "Replace the SNAPSHOT build with an immutable production release.",
+    "Build and scan AMD64 and any claimed ARM64 images in AWS Marketplace-managed ECR.",
+    "Validate the selected EMR release, Java, Spark, Scala, IAM, and job behavior.",
+    "Select BYOL, contract, or supported pricing and complete seller review.",
+    "Provide fully self-service usage instructions without external paid dependencies."
+  ]
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--FILE AUTOMATICALLY GENERATED FROM ayx_workspace.json. DO NOT MODIFY.-->
+<AlteryxJavaScriptPlugin>
+  <EngineSettings EngineDll="SdkEnginePlugin.dll" EngineDllEntryPoint="SdkEnginePlugin" SDKVersion="10.1" />
+  <SdkSettings Manifest="True" Language="Python">
+    <CustomParameters>
+      <Version Value="2.5" />
+      <ToolVersion Value="1.0" />
+      <WritesOutputData Value="True" />
+    </CustomParameters>
+  </SdkSettings>
+  <GuiSettings Html="index.html" Icon="dataai-alteryx-icon.png" SDKVersion="10.1" Help="https://www.yanbor.com/dataai">
+    <InputConnections />
+    <OutputConnections>
+      <Connection AllowMultiple="False" Label="Status" Name="Status" Optional="True" Type="Connection" />
+    </OutputConnections>
+  </GuiSettings>
+  <Properties>
+    <MetaInfo>
+      <Name>DataAI ETL Quality</Name>
+      <RootToolName>DataAI ETL Quality</RootToolName>
+      <Description>Run governed DataAI normalization, profiling, validation, and quality scoring in customer-controlled Spark.</Description>
+      <ToolVersion>1.0</ToolVersion>
+      <DcmNamespace />
+      <CategoryName>DataAI ETL</CategoryName>
+      <SearchTags>DataAI, ETL, Spark, quality, validation, profiling</SearchTags>
+      <Author>Yanbor LLC</Author>
+      <Company>Yanbor LLC</Company>
+      <Copyright>Copyright 2026 Yanbor LLC. All rights reserved.</Copyright>
+    </MetaInfo>
+  </Properties>
+</AlteryxJavaScriptPlugin>

@@ -1,0 +1,13 @@
+order_id,customer_id,order_date,region,channel,product,quantity,unit_price,amount,status
+ORD-1001,CUST-001,2026-01-04,North,Online,Widget A,2,45.00,90.00,Open
+ORD-1002,CUST-002,2026-01-05,South,Retail,Widget B,1,80.00,80.00,Closed
+ORD-1003,CUST-003,2026-01-08,East,Online,Widget A,4,45.00,180.00,Open
+ORD-1004,CUST-004,2026-01-10,North,Retail,Widget C,3,32.50,97.50,Closed
+ORD-1005,,2026-01-12,South,Online,Widget B,2,80.00,160.00,Open
+ORD-1006,CUST-006,not-a-date,East,Retail,Widget A,1,45.00,45.00,Open
+ORD-1007,CUST-007,2026-01-16,North,Online,Widget C,5,32.50,162.50,Pending
+ORD-1008,CUST-008,2026-01-18,South,Retail,Widget A,2,45.00,-90.00,Closed
+ORD-1009,CUST-009,2026-01-20,East,Online,Widget B,3,80.00,240.00,Open
+ORD-1010,CUST-010,2026-01-23,North,Retail,Widget A,1,45.00,45.00,Closed
+ORD-1010,CUST-011,2026-01-24,South,Online,Widget C,2,32.50,65.00,Open
+ORD-1012,CUST-012,2026-01-27, East ,Retail,Widget B,1,80.00,80.00,Open

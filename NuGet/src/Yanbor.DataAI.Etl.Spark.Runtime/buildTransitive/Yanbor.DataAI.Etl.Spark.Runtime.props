@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <DataAiSparkRuntimePackageRoot>$(MSBuildThisFileDirectory)..\</DataAiSparkRuntimePackageRoot>
+    <DataAiSparkPackageJarsDirectory>$(DataAiSparkRuntimePackageRoot)tools\jars</DataAiSparkPackageJarsDirectory>
+    <DataAiSparkPackageCliDirectory>$(DataAiSparkRuntimePackageRoot)tools\cli</DataAiSparkPackageCliDirectory>
+  </PropertyGroup>
+</Project>

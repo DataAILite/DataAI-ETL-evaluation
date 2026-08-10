@@ -1,0 +1,40 @@
+{
+  "name": "DataAI ETL Spark Libraries for Databricks",
+  "provider": "Yanbor LLC",
+  "providerDescription": "provider of the DataAI product",
+  "packageVersion": "0.1.0-SNAPSHOT",
+  "packageStatus": "evaluation-development",
+  "listing": {
+    "name": "DataAI ETL Spark Libraries",
+    "shortDescription": "Embed governed data quality, analytics, market, mapping, matrix balancing, and explainable insight functions in customer-controlled Spark pipelines.",
+    "availability": "personalized-provider-approval",
+    "assetTypes": ["files", "notebooks"]
+  },
+  "runtime": {
+    "java": "17",
+    "sparkBuild": "3.5.0",
+    "scalaBinary": "2.12",
+    "databricksValidationTarget": "16.4 LTS Scala 2.12",
+    "externalDatabricksValidation": false
+  },
+  "coordinates": [
+    "com.dataai:dataai-spark-api:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-quality:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-core:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-functions:0.1.0-SNAPSHOT",
+    "com.dataai:dataai-spark-cli:0.1.0-SNAPSHOT"
+  ],
+  "dataHandling": {
+    "hostedService": false,
+    "requiredDataAiNetworkCalls": false,
+    "telemetry": false,
+    "remoteLicenseCheck": false,
+    "automaticWrites": false,
+    "bundledSpark": false,
+    "bundledHadoop": false
+  },
+  "delivery": {
+    "evaluation": "personalized Marketplace share using Unity Catalog files and notebooks",
+    "production": "authenticated private Maven repository or approved customer artifact channel"
+  }
+}

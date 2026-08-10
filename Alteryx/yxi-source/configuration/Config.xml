@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--FILE AUTOMATICALLY GENERATED FROM ayx_workspace.json. DO NOT MODIFY.-->
+<AlteryxJavaScriptPlugin>
+  <EngineSettings EngineDLL="Python" SDKVersion="10.1" />
+  <Properties>
+    <MetaInfo>
+      <Name>DataAI_ETL_Alteryx_2026_1_Evaluation</Name>
+      <RootToolName>DataAI_ETL_Alteryx_2026_1_Evaluation</RootToolName>
+      <Description>Run DataAI Spark ETL quality processing from an Alteryx workflow without a Yanbor-hosted service.</Description>
+      <CategoryName>DataAI ETL</CategoryName>
+      <ToolVersion>1.0</ToolVersion>
+      <DcmNamespace />
+      <Author>Yanbor LLC</Author>
+      <Company>Yanbor LLC</Company>
+      <Copyright>Copyright 2026 Yanbor LLC. All rights reserved.</Copyright>
+      <Icon>dataai-alteryx-icon.png</Icon>
+    </MetaInfo>
+  </Properties>
+</AlteryxJavaScriptPlugin>

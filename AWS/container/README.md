@@ -1,0 +1,1 @@
+Build from an AWS-provided EMR Serverless Spark image, preserving its entrypoint and `hadoop` user. The Dockerfile copies DataAI JARs to `/opt/dataai/lib` and `/usr/lib/spark/jars`. Customers select the resulting Marketplace image when creating EMR Serverless Spark compute. No DataAI service runs.

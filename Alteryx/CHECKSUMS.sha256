@@ -1,0 +1,7 @@
+1d18ef848ecd6ab88b37d36cfbd692bb2b9073454a12e6b97268134d775d95b1  build/DataAI_ETL_Alteryx_2026_1_Evaluation.yxi
+050e72b5f896235e6843e62105bee3d81eba916691fa39bb9e9fa10bd1007d19  distribution/DataAI_ETL_Alteryx_Evaluation.zip
+4a6cd36dc4124e847f200eba1d41c37b5e7e09a9149c44e6f89d87dd3da5aade  lib/dataai-spark-api-0.1.0-SNAPSHOT.jar
+423a123eb203a6d074dfa8534d61acec956e2c884e0d5065ab0e5d62d2d9984e  lib/dataai-spark-cli-0.1.0-SNAPSHOT.jar
+16708b189d9f6455d2f5baf41a8fc117ef047e7cef1f4cdc4c0fb9a75cbad3fd  lib/dataai-spark-core-0.1.0-SNAPSHOT.jar
+2481c331f5cbc43f40e3620e7134be136ef2cf56b2338ee3fb3fe2052862c9fb  lib/dataai-spark-functions-0.1.0-SNAPSHOT.jar
+223ab75564dbff43986abeb23893f8ded7aa74feda90cd5a7fcfa5260ee14eae  lib/dataai-spark-quality-0.1.0-SNAPSHOT.jar

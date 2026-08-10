@@ -1,0 +1,7 @@
+OrderSequence,Order ID,Customer ID,Amount,Email,Status,Order Date,Region
+1,ORD-1001,CUST-100,125.50,buyer1@example.test,Open,2026-08-01,West
+2,ORD-1002,,50.00,buyer2@example.test,Open,2026-08-02,Central
+3,ORD-1003,CUST-300,-10.00,invalid-email,Pending,2026-08-03,East
+4,ORD-1003,CUST-301,75.00,buyer4@example.test,Closed,2026-08-04,West
+5,ORD-1005,CUST-500,310.25,buyer5@example.test,Closed,not-a-date,South
+6,ORD-1006,CUST-600,42.75,buyer6@example.test,Open,2026-08-06,North

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.dataai</groupId>
+    <artifactId>dataai-etl-spark-parent</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <relativePath>../spark/pom.xml</relativePath>
+  </parent>
+  <artifactId>dataai-spark-iris</artifactId>
+  <name>DataAI Spark IRIS Adapter</name>
+  <description>Optional customer-side InterSystems IRIS JDBC adapter for DataAI Spark.</description>
+  <dependencies>
+    <dependency>
+      <groupId>com.dataai</groupId>
+      <artifactId>dataai-spark-functions</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.spark</groupId>
+      <artifactId>spark-sql_${scala.binary.version}</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.dataai</groupId>
+      <artifactId>dataai-spark-testkit</artifactId>
+      <version>${project.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>

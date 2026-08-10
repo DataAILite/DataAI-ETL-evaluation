@@ -1,0 +1,28 @@
+{
+  "name": "DataAI ETL Spark Libraries for Microsoft Marketplace",
+  "provider": "Yanbor LLC",
+  "providerDescription": "provider of the DataAI product",
+  "packageVersion": "0.1.0-SNAPSHOT",
+  "packageStatus": "evaluation-development",
+  "submissionReady": false,
+  "channel": "Microsoft",
+  "offerType": "Azure Container / Kubernetes application review candidate",
+  "runtime": {
+    "java": "17",
+    "spark": "3.5.0",
+    "scalaBinary": "2.12"
+  },
+  "dataHandling": {
+    "hostedService": false,
+    "telemetry": false,
+    "remoteLicenseCheck": false,
+    "automaticWrites": false
+  },
+  "releaseGates": [
+    "Select an accepted Azure offer type that does not misrepresent DataAI as SaaS.",
+    "Replace SNAPSHOT artifacts with an immutable production release.",
+    "Build a functional AKS application and CNAB if the Azure Container route is approved.",
+    "Approve public-registry exposure of proprietary container layers before using that route.",
+    "Complete Partner Center certification, pricing, privacy, and support requirements."
+  ]
+}

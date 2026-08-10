@@ -1,0 +1,35 @@
+{
+  "name": "DataAI ETL evaluation",
+  "tasks": [
+    {
+      "task_key": "dataai_quality_evaluation",
+      "notebook_task": {
+        "notebook_path": "/Shared/DataAI_ETL/01_QUALITY_PIPELINE",
+        "base_parameters": {
+          "dataai_base_path": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl",
+          "persist_results": "false",
+          "output_catalog": "<customer_catalog>",
+          "output_schema": "<customer_schema>"
+        }
+      },
+      "job_cluster_key": "dataai_evaluation_cluster",
+      "libraries": [
+        {"jar": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl/lib/dataai-spark-api-0.1.0-SNAPSHOT.jar"},
+        {"jar": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl/lib/dataai-spark-quality-0.1.0-SNAPSHOT.jar"},
+        {"jar": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl/lib/dataai-spark-core-0.1.0-SNAPSHOT.jar"},
+        {"jar": "/Volumes/<catalog>/<schema>/<volume>/dataai-etl/lib/dataai-spark-functions-0.1.0-SNAPSHOT.jar"}
+      ]
+    }
+  ],
+  "job_clusters": [
+    {
+      "job_cluster_key": "dataai_evaluation_cluster",
+      "new_cluster": {
+        "spark_version": "16.4.x-scala2.12",
+        "node_type_id": "<cloud-specific-node-type>",
+        "num_workers": 1,
+        "data_security_mode": "USER_ISOLATION"
+      }
+    }
+  ]
+}

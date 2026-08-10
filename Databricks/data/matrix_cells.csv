@@ -1,0 +1,7 @@
+region,channel,current_value
+North,Retail,62.0
+North,Online,38.0
+South,Retail,48.0
+South,Online,42.0
+East,Retail,55.0
+East,Online,35.0

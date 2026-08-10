@@ -1,0 +1,9 @@
+run_id,field_name,source_type,record_count,null_count,distinct_count,minimum_value,maximum_value,mean_value,standard_deviation
+RUN-2026-08-06,order_id,string,102450,0,102449,ORD-000001,ORD-102449,,
+RUN-2026-08-06,customer_id,string,102450,112,28340,CUST-00001,CUST-28340,,
+RUN-2026-08-06,amount,double,102450,18,68421,-12.50,12480.00,246.81,318.44
+RUN-2026-08-06,email,string,102450,214,28105,alpha@example.test,zulu@example.test,,
+RUN-2026-08-06,status,string,102450,35,6,Closed,Unknown,,
+RUN-2026-08-06,order_date,date,102450,84,365,2025-08-07,2026-08-06,,
+RUN-2026-08-06,region,string,102450,97,8,Central,West,,
+RUN-2026-08-06,product_category,string,102450,82,12,Accessories,Workstations,,

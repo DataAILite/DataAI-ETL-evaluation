@@ -1,0 +1,28 @@
+{
+  "name": "DataAI ETL Spark Libraries for Google Cloud Marketplace",
+  "provider": "Yanbor LLC",
+  "providerDescription": "provider of the DataAI product",
+  "packageVersion": "0.1.0-SNAPSHOT",
+  "packageStatus": "evaluation-development",
+  "submissionReady": false,
+  "channel": "Google",
+  "offerType": "Container image product for customer-controlled Dataproc delivery",
+  "runtime": {
+    "java": "17",
+    "spark": "3.5.0",
+    "scalaBinary": "2.12"
+  },
+  "dataHandling": {
+    "hostedService": false,
+    "telemetry": false,
+    "remoteLicenseCheck": false,
+    "automaticWrites": false
+  },
+  "releaseGates": [
+    "Complete Google Cloud Marketplace partner onboarding and Producer Portal access.",
+    "Replace SNAPSHOT artifacts with an immutable production release.",
+    "Obtain the product service name and add the required OCI image annotation.",
+    "Build, scan, stage, and validate the image in Google's required registry workflow.",
+    "Test Dataproc compatibility, pricing, support, and private-offer behavior."
+  ]
+}

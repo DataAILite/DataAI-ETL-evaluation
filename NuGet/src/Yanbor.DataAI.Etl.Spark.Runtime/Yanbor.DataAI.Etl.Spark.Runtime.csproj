@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackageId>Yanbor.DataAI.Etl.Spark.Runtime</PackageId>
+    <Version>0.1.0-evaluation.1</Version>
+    <Authors>Yanbor LLC</Authors>
+    <Company>Yanbor LLC</Company>
+    <Description>Evaluation runtime artifacts for embedding DataAI ETL in customer-controlled Apache Spark pipelines.</Description>
+    <PackageTags>DataAI;ETL;Spark;data-quality;analytics;matrix-balancing</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>dataai-spark-icon.png</PackageIcon>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>Evaluation prerelease containing DataAI Spark 0.1.0-SNAPSHOT artifacts. Not approved for production publication.</PackageReleaseNotes>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="README.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\LICENSE.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\SparkETL\THIRD_PARTY_NOTICES.md" Pack="true" PackagePath="\" />
+    <None Include="..\..\..\SparkETL\assets\dataai-spark-icon.png" Pack="true" PackagePath="\" />
+    <None Update="buildTransitive\Yanbor.DataAI.Etl.Spark.Runtime.props" Pack="true" PackagePath="buildTransitive\Yanbor.DataAI.Etl.Spark.Runtime.props" />
+    <None Update="buildTransitive\Yanbor.DataAI.Etl.Spark.Runtime.targets" Pack="true" PackagePath="buildTransitive\Yanbor.DataAI.Etl.Spark.Runtime.targets" />
+    <None Include="..\..\..\SparkETL\lib\dataai-spark-api-0.1.0-SNAPSHOT.jar" Pack="true" PackagePath="tools\jars\" />
+    <None Include="..\..\..\SparkETL\lib\dataai-spark-quality-0.1.0-SNAPSHOT.jar" Pack="true" PackagePath="tools\jars\" />
+    <None Include="..\..\..\SparkETL\lib\dataai-spark-core-0.1.0-SNAPSHOT.jar" Pack="true" PackagePath="tools\jars\" />
+    <None Include="..\..\..\SparkETL\lib\dataai-spark-functions-0.1.0-SNAPSHOT.jar" Pack="true" PackagePath="tools\jars\" />
+    <None Include="..\..\..\SparkETL\lib\dataai-spark-cli-0.1.0-SNAPSHOT.jar" Pack="true" PackagePath="tools\cli\" />
+  </ItemGroup>
+</Project>
