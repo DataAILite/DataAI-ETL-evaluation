@@ -313,6 +313,12 @@ This file is a permanent local work history for `C:\Projects\DataAI.Etl`.
   so the documented NuGet packages, checksums, and direct Alteryx installer are
   downloadable. Verified 24 HTML pages with HTTP GET and all 61 market-table
   download/license targets with HTTP HEAD, with zero failures.
+
+## 2026-08-11
+
+- Added browser-ready HTML copies of the complete function catalog, IRIS
+  README and function-output mapping, and Tableau function-output and output-
+  schema mappings to the evaluation repository change set.
 - Relocated the evaluation installation guides to
   `SAVEDFILES/DataAIETLevaluation/InstallationGuide/` and the production
   installation guides to

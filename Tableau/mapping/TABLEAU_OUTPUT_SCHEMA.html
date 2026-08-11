@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tableau Output Contract — DataAI</title>
+    <style>
+        :root { color-scheme: light; font-family: "Segoe UI", Arial, sans-serif; }
+        body { margin: 0; background: #f4f7fb; color: #172033; font-size: 14px; line-height: 1.65; }
+        main { max-width: 1000px; margin: 32px auto; padding: 0 20px 48px; }
+        .card { background: #fff; border: 1px solid #d9e1ec; border-radius: 10px; box-shadow: 0 4px 18px rgba(23,32,51,.08); padding: 32px 40px; }
+        h1 { margin-top: 0; font-size: 1.45rem; }
+        h2 { font-size: 1rem; margin: 28px 0 8px; padding-bottom: 4px; border-bottom: 2px solid #663300; color: #3a1a00; }
+        table { border-collapse: collapse; width: 100%; margin: 8px 0 16px; font-size: 13px; }
+        th { background: #663300; color: #fff; padding: 7px 12px; text-align: left; white-space: nowrap; }
+        td { border: 1px solid #d0d8e8; padding: 6px 12px; vertical-align: top; }
+        tr:nth-child(even) td { background: #f7f4f1; }
+        code { font-family: Consolas, "Courier New", monospace; padding: 2px 5px; background: #eef1f5; border-radius: 3px; font-size: 12.5px; }
+        pre { background: #1e2638; color: #d4e0f4; border-radius: 6px; padding: 14px 18px; overflow-x: auto; font-size: 12.5px; line-height: 1.55; margin: 8px 0 16px; }
+        pre code { background: none; padding: 0; }
+        ul { padding-left: 22px; margin: 6px 0 12px; }
+        li { margin-bottom: 3px; }
+        a { color: #174ea6; }
+        .back { font-size: 13px; margin-bottom: 16px; display: block; }
+    </style>
+</head>
+<body>
+<main>
+    <a class="back" href="../../docs/FUNCTION_CATALOG.html">&larr; Back to Function Catalog</a>
+    <article class="card">
+        <h1>Tableau Output Contract</h1>
+        <p><code>TableauOutputs.from(DataAiResult)</code> returns a <code>TableauOutputBundle</code>. The adapter does not write these DataFrames. Persist only the outputs needed by the customer and use governed table/view names if they differ from the defaults.</p>
+
+        <h2>Standard outputs</h2>
+        <table>
+            <tr><th>Bundle method</th><th>Default table constant</th><th>Grain</th><th>Tableau use</th></tr>
+            <tr><td><code>cleanRows()</code></td><td><code>dataai_clean_rows</code></td><td>One accepted source record</td><td>Governed analysis and record drill-through</td></tr>
+            <tr><td><code>rejectedRows()</code></td><td><code>dataai_rejected_rows</code></td><td>One rejected source record</td><td>Remediation workflow</td></tr>
+            <tr><td><code>qualityFindings()</code></td><td><code>dataai_quality_findings</code></td><td>One rule finding</td><td>Severity/rule/field analysis</td></tr>
+            <tr><td><code>fieldProfiles()</code></td><td><code>dataai_field_profiles</code></td><td>One field profile for the current run</td><td>Completeness and distribution analysis</td></tr>
+            <tr><td><code>pipelineRuns()</code></td><td><code>dataai_pipeline_runs</code></td><td>One pipeline execution</td><td>Audit and run history</td></tr>
+            <tr><td><code>dashboardMetrics()</code></td><td><code>dataai_dashboard_metrics</code></td><td>One pipeline execution</td><td>Fast Tableau overview</td></tr>
+        </table>
+        <p>The default names are constants in <code>TableauOutputNames</code>. They do not force a catalog, schema, storage format, or write mode.</p>
+
+        <h2><code>dataai_dashboard_metrics</code></h2>
+        <table>
+            <tr><th>Field</th><th>Spark type</th><th>Nullable</th><th>Meaning</th></tr>
+            <tr><td><code>run_id</code></td><td>string</td><td>No</td><td>DataAI pipeline run identifier</td></tr>
+            <tr><td><code>completed_at</code></td><td>timestamp</td><td>No</td><td>Pipeline completion time</td></tr>
+            <tr><td><code>status</code></td><td>string</td><td>No</td><td>Pipeline status</td></tr>
+            <tr><td><code>rows_read</code></td><td>long</td><td>No</td><td>Input records evaluated</td></tr>
+            <tr><td><code>rows_accepted</code></td><td>long</td><td>No</td><td>Records without findings</td></tr>
+            <tr><td><code>rows_rejected</code></td><td>long</td><td>No</td><td>Records with at least one finding</td></tr>
+            <tr><td><code>quality_score</code></td><td>double</td><td>No</td><td>Accepted records / read records * 100</td></tr>
+            <tr><td><code>critical_findings</code></td><td>long</td><td>No</td><td>CRITICAL finding count</td></tr>
+            <tr><td><code>error_findings</code></td><td>long</td><td>No</td><td>ERROR finding count</td></tr>
+            <tr><td><code>warning_findings</code></td><td>long</td><td>No</td><td>WARNING finding count</td></tr>
+            <tr><td><code>info_findings</code></td><td>long</td><td>No</td><td>INFO finding count</td></tr>
+            <tr><td><code>fields_profiled</code></td><td>long</td><td>No</td><td>Profile rows produced</td></tr>
+            <tr><td><code>total_null_values</code></td><td>long</td><td>No</td><td>Sum of profile <code>null_count</code> values</td></tr>
+        </table>
+
+        <h2><code>dataai_pipeline_runs</code></h2>
+        <table>
+            <tr><th>Field</th><th>Spark type</th><th>Nullable</th></tr>
+            <tr><td><code>run_id</code></td><td>string</td><td>No</td></tr>
+            <tr><td><code>started_at</code></td><td>timestamp</td><td>No</td></tr>
+            <tr><td><code>completed_at</code></td><td>timestamp</td><td>No</td></tr>
+            <tr><td><code>status</code></td><td>string</td><td>No</td></tr>
+            <tr><td><code>rows_read</code></td><td>long</td><td>No</td></tr>
+            <tr><td><code>rows_accepted</code></td><td>long</td><td>No</td></tr>
+            <tr><td><code>rows_rejected</code></td><td>long</td><td>No</td></tr>
+            <tr><td><code>quality_score</code></td><td>double</td><td>No</td></tr>
+            <tr><td><code>library_version</code></td><td>string</td><td>No</td></tr>
+        </table>
+
+        <h2><code>dataai_quality_findings</code></h2>
+        <p>The base DataAI findings schema is:</p>
+        <p><code>record_key</code>, <code>rule_id</code>, <code>field_name</code>, <code>severity</code>, <code>finding_code</code>, <code>message</code>, <code>original_value</code>, <code>normalized_value</code>.</p>
+        <p>For multi-run Tableau history, add the current <code>run_id</code> before appending:</p>
+<pre><code>Dataset&lt;Row&gt; findingsForHistory = tableau.qualityFindings()
+        .withColumn("run_id", lit(result.summary().runId()));</code></pre>
+
+        <h2><code>dataai_field_profiles</code></h2>
+        <p>The base profile schema is:</p>
+        <p><code>field_name</code>, <code>source_type</code>, <code>record_count</code>, <code>null_count</code>, <code>distinct_count</code>, <code>minimum_value</code>, <code>maximum_value</code>, <code>mean_value</code>, <code>standard_deviation</code>.</p>
+        <p>For multi-run Tableau history, add <code>run_id</code> in the same way before append.</p>
+
+        <h2>Recommended Tableau model</h2>
+        <ul>
+            <li>Use <code>dataai_dashboard_metrics</code> alone for the overview Accelerator.</li>
+            <li>Relate <code>dataai_pipeline_runs</code> (one) to <code>dataai_quality_findings</code> (many) by <code>run_id</code> for finding details.</li>
+            <li>Relate <code>dataai_pipeline_runs</code> (one) to <code>dataai_field_profiles</code> (many) by <code>run_id</code> for completeness details.</li>
+            <li>Relate findings to clean/rejected source rows by <code>record_key</code> only when the customer authorizes record-level BI access.</li>
+            <li>Keep row-level security and data-source credentials in Tableau or the underlying platform; DataAI does not manage Tableau identities.</li>
+        </ul>
+    </article>
+</main>
+</body>
+</html>

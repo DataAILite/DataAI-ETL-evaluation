@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DataAI Function Coverage for Tableau</title>
+    <style>
+        :root { color-scheme: light; font-family: "Segoe UI", Arial, sans-serif; }
+        body { margin: 0; background: #f4f7fb; color: #172033; font-size: 14px; line-height: 1.65; }
+        main { max-width: 1000px; margin: 32px auto; padding: 0 20px 48px; }
+        .card { background: #fff; border: 1px solid #d9e1ec; border-radius: 10px; box-shadow: 0 4px 18px rgba(23,32,51,.08); padding: 32px 40px; }
+        h1 { margin-top: 0; font-size: 1.45rem; }
+        h2 { font-size: 1rem; margin: 28px 0 8px; padding-bottom: 4px; border-bottom: 2px solid #663300; color: #3a1a00; }
+        table { border-collapse: collapse; width: 100%; margin: 8px 0 16px; font-size: 13px; }
+        th { background: #663300; color: #fff; padding: 7px 12px; text-align: left; }
+        td { border: 1px solid #d0d8e8; padding: 6px 12px; vertical-align: top; }
+        tr:nth-child(even) td { background: #f7f4f1; }
+        code { font-family: Consolas, "Courier New", monospace; padding: 2px 5px; background: #eef1f5; border-radius: 3px; font-size: 12.5px; }
+        pre { background: #1e2638; color: #d4e0f4; border-radius: 6px; padding: 14px 18px; overflow-x: auto; font-size: 12.5px; line-height: 1.55; margin: 8px 0 16px; }
+        pre code { background: none; padding: 0; }
+        ul { padding-left: 22px; margin: 6px 0 12px; }
+        li { margin-bottom: 3px; }
+        a { color: #174ea6; }
+        .back { font-size: 13px; margin-bottom: 16px; display: block; }
+    </style>
+</head>
+<body>
+<main>
+    <a class="back" href="../../docs/FUNCTION_CATALOG.html">&larr; Back to Function Catalog</a>
+    <article class="card">
+        <h1>Complete DataAI Function Coverage for Tableau</h1>
+        <p>The <code>dataai-spark-tableau</code> Maven artifact depends on <code>dataai-spark-functions</code>, so adding the Tableau artifact makes the complete DataAI computational catalog available transitively. Algorithms are not copied into Tableau code; they remain tested once in the portable functions module.</p>
+        <p>Every DataAI function result is already a Spark <code>Dataset&lt;Row&gt;</code> or a small record containing DataFrames. Pass any result DataFrame to <code>TableauFunctionOutputs.withRunMetadata(...)</code>, persist it under a governed table/view, and connect Tableau through Spark SQL or Databricks.</p>
+
+        <h2>Coverage</h2>
+        <table>
+            <tr><th>Function family</th><th>DataAI APIs available to Tableau pipelines</th><th>Suggested result name</th></tr>
+            <tr><td>ETL pipeline</td><td><code>DataAiPipeline</code>, declarative <code>RuleSpec</code> validation</td><td><code>pipeline_*</code></td></tr>
+            <tr><td>Data quality</td><td><code>DataQualityFunctions</code> automatic, missing, duplicate, date, outlier, category, and text checks</td><td><code>quality_*</code></td></tr>
+            <tr><td>General analytics</td><td><code>AnalyticsFunctions</code> summaries, pivot, variance, ranking, correlations, regression</td><td><code>analytics_*</code></td></tr>
+            <tr><td>Time analysis</td><td><code>TimeSeriesFunctions</code> summaries, moving averages, rolling totals, period changes</td><td><code>time_*</code></td></tr>
+            <tr><td>Business analytics</td><td><code>BusinessFunctions</code> outliers, anomalies, drift, Pareto, cohort, funnel, KPI</td><td><code>business_*</code></td></tr>
+            <tr><td>Market models</td><td><code>MarketFunctions</code> demand, pricing, elasticity, basket, segments, churn, risk, inventory, profit, scenario</td><td><code>market_*</code></td></tr>
+            <tr><td>Geographic</td><td><code>MapFunctions.readiness(...)</code> and all returned readiness DataFrames</td><td><code>map_*</code></td></tr>
+            <tr><td>Matrix</td><td><code>MatrixFunctions.crossTab(...)</code> and <code>MatrixFunctions.balance(...)</code></td><td><code>matrix_cross_tab</code>, <code>matrix_balance</code></td></tr>
+            <tr><td>Insights</td><td><code>InsightFunctions</code> dictionary, chart recommendations, narratives, and alerts</td><td><code>insight_*</code></td></tr>
+        </table>
+
+        <h2>Universal adapter</h2>
+<pre><code>Dataset&lt;Row&gt; tableauResult = TableauFunctionOutputs.withRunMetadata(
+        dataAiFunctionResult,
+        "market_demand",
+        runId,
+        completedAt,
+        libraryVersion);
+
+tableauResult.write()
+        .format("delta")
+        .mode(SaveMode.Overwrite)
+        .saveAsTable("analytics.dataai_market_demand");</code></pre>
+        <p>The added reserved columns are:</p>
+        <ul>
+            <li><code>_dataai_result_name</code></li>
+            <li><code>_dataai_run_id</code></li>
+            <li><code>_dataai_completed_at</code></li>
+            <li><code>_dataai_library_version</code></li>
+        </ul>
+        <p>The adapter rejects a result that already contains one of these names instead of silently overwriting customer data.</p>
+
+        <h2>Matrix balancing</h2>
+        <p>Matrix balancing is explicitly supported. Use <code>TableauFunctionOutputs.matrixBalance(...)</code> to expose <code>balancedCells()</code> plus:</p>
+        <ul>
+            <li><code>balance_iterations</code></li>
+            <li><code>balance_maximum_error</code></li>
+            <li><code>balance_converged</code></li>
+        </ul>
+        <p>The output retains the DataAI matrix fields: original value, balanced value, row and column targets, balanced totals, differences, and coefficients. The complete persistence example is <code>../examples/java/TableauMatrixBalancingExample.java</code>.</p>
+        <p>Tableau can visualize the balanced values as a heat map, highlight target differences, filter to non-converged runs, and compare original versus balanced values. The customer's Spark job remains responsible for convergence policy and must decide whether a non-converged result may be published.</p>
+    </article>
+</main>
+</body>
+</html>
